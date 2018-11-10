@@ -14,17 +14,22 @@ class TestCardGame < MiniTest::Test
     @card_game = CardGame.new()
   end
 
-  def test_check_for_ace
+  def test_check_for_ace_true
     result = @card_game.checkforAce(@card1)
     assert_equal(true, result)
   end
 
-  def test_check_for_ace
+  def test_check_for_ace_false
     result = @card_game.checkforAce(@card2)
     assert_equal(false, result)
   end
 
-  def test_check_highest_card
+  def test_check_highest_card_first
+    result = @card_game.highest_card(@card3, @card1)
+    assert_equal(4, result)
+  end
+
+  def test_check_highest_card_second
     result = @card_game.highest_card(@card1, @card2)
     assert_equal(10, result)
   end
